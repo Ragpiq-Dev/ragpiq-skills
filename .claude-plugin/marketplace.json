@@ -1,0 +1,35 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ragpiq-skills",
+  "id": "ragpiq-skills",
+  "owner": {
+    "name": "Ragpiq",
+    "email": "team@ragpiq.com"
+  },
+  "metadata": {
+    "description": "Ragpiq engineering skills — pre-PR audit, brand voice review, and other Ragpiq-specific workflows for AI coding agents",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ragpiq-pre-pr-audit",
+      "source": "./",
+      "description": "Pre-PR audit skill for Ragpiq frontend work. Runs Bubble field_name validation, n8n env-routing scan, brand voice review, multi-viewport visual audit, then dispatches Anthropic /code-review:code-review on a draft PR before asking for explicit OK to convert to ready.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ragpiq Engineering"
+      },
+      "keywords": [
+        "ragpiq",
+        "pre-pr",
+        "audit",
+        "bubble",
+        "n8n",
+        "code-review",
+        "pr-template"
+      ],
+      "category": "workflow",
+      "strict": false
+    }
+  ]
+}

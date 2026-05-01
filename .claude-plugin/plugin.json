@@ -1,0 +1,21 @@
+{
+  "name": "ragpiq-pre-pr-audit",
+  "description": "Pre-PR audit skill for Ragpiq frontend work. 9-phase audit: TypeScript check, Ragpiq-specific Bubble field_name validator, n8n env-routing scan, brand voice review, schema staleness check, multi-viewport visual audit, push as draft PR, dispatch Anthropic /code-review on the draft, explicit user OK before convert-to-ready. Triggers on /audit-pr slash command and phrases like create PR, ship it, ready for Pat, ready to merge.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ragpiq Engineering",
+    "email": "team@ragpiq.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Ragpiq-Dev/ragpiq-skills",
+  "repository": "https://github.com/Ragpiq-Dev/ragpiq-skills",
+  "keywords": [
+    "ragpiq",
+    "pre-pr",
+    "audit",
+    "bubble",
+    "n8n",
+    "pr-template",
+    "code-review"
+  ]
+}

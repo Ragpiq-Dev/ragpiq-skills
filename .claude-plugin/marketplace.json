@@ -1,0 +1,14 @@
+{
+  "name": "ragpiq-skills",
+  "description": "Ragpiq's house skills for Claude Code. Install the ragpiq plugin once per machine; updates ship on every merge to main.",
+  "owner": {
+    "name": "Ragpiq"
+  },
+  "plugins": [
+    {
+      "name": "ragpiq",
+      "source": "./plugins/ragpiq",
+      "description": "Ragpiq house skills for Claude Code. Currently: ragpiq-front-end (UI/UX design rules)."
+    }
+  ]
+}

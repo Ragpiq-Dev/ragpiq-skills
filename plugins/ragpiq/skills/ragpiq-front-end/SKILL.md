@@ -33,7 +33,7 @@ If a screen needs a paragraph, it needs another screen.
 - Anything extra lives in one bounded line: reassurance under the CTA, a one-line card, or fine print. Never a paragraph.
 - Buttons morph instead of multiplying: "Skip for now" becomes "Continue with 2 connected".
 - Busy labels are a verb with an ellipsis: "Saving…".
-- AU English. No em dashes anywhere a user can read; use a comma, colon or full stop.
+- AU English. No em dashes, ever. An en dash in a range ($480 – $620) is fine.
 - Not: "Contact information. Please provide the email address where you would like to receive updates." This: "Where should updates go?"
 
 ## Layout and spacing
@@ -63,6 +63,7 @@ One big drawing does the talking.
 - Never a second competing button. Morph the label instead.
 - Never inline error text under a field. A disabled Continue says invalid; a toast says failed.
 - Never a new colour, font or button shape. Match the neighbouring screens.
+- Never an em dash, anywhere. Use a comma, colon or full stop.
 
 ## Before you ship
 

@@ -1,0 +1,25 @@
+{
+  "_comment": "The shipped 2026-07-30 office walk-in reel (v9) — the worked example. Sources: Billy knocks + walks in (4231/4233), Pat demos Tap to Pay to the $30 screen (4236), Gwynn demos piq cross-listing (4238). afilter dB values were MEASURED per source (see SKILL.md § level match), never guessed.",
+  "sources": [
+    {"path": "/Users/patro/Downloads/IMG_4233.MOV", "afilter": "highpass=f=75,volume=7.0dB"},
+    {"path": "/Users/patro/Downloads/IMG_4236.MOV", "afilter": "highpass=f=75,volume=4.4dB"},
+    {"path": "/Users/patro/Downloads/IMG_4238.MOV", "afilter": "highpass=f=75"},
+    {"path": "/Users/patro/Downloads/IMG_4231.MOV", "afilter": "highpass=f=75,afftdn=nr=12:nf=-45,volume=16dB"}
+  ],
+  "segments": [
+    [3, 0.00, 2.35],
+    [0, 3.30, 7.80],
+    [0, 11.15, 13.05],
+    [1, 0.45, 5.90],
+    [1, 9.20, 12.30],
+    [1, 13.05, 16.50],
+    [1, 17.80, 20.30],
+    [2, 0.62, 1.50],
+    [2, 1.85, 4.55],
+    [2, 6.65, 10.15],
+    [2, 11.06, 16.60],
+    [2, 16.95, 18.97],
+    [2, 19.90, 20.50]
+  ],
+  "out": "OUT_reel.mp4"
+}

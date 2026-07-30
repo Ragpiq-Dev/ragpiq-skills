@@ -1,6 +1,6 @@
 {
   "name": "ragpiq",
-  "description": "Ragpiq house skills. Currently: ragpiq-front-end (house UI/UX rules for copy, spacing, one-decision flows and big SVG illustrations).",
+  "description": "Ragpiq house skills. Currently: ragpiq-front-end (house UI/UX rules), ragpiq-todo (shipped-work action lists), video-edit (cut social video \u2014 picture untouched, native quality, verified before delivery).",
   "author": {
     "name": "Ragpiq"
   }

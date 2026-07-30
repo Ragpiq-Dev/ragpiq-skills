@@ -33,3 +33,4 @@ claude plugin validate .
 - **ragpiq** (plugin)
   - `ragpiq-front-end`: house UI/UX rules (copy budgets, spacing, one-decision-at-a-time flows, big SVG illustrations). Loads automatically whenever Claude works on user-facing UI.
   - `ragpiq-todo`: turns work that just shipped into a short list of what to do next, action items only, under Setup / Test / Won't work / Your call. Ask "what do I need to do" or "how do I test this".
+  - `video-edit`: how Ragpiq cuts and ships social video — transcript-driven editing with the picture untouched (no filters, native 4K60 HDR, hard cuts, no fades) and a verify loop that re-transcribes the output before anyone watches. Ships working scripts (`edl_build.py`, `verify.py`, cut-point + transcription helpers). Human-facing standard: `ragpiq-ops` → `operations/sops/2026-07-30-video-content-standard.md`.

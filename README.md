@@ -32,3 +32,4 @@ claude plugin validate .
 
 - **ragpiq** (plugin)
   - `ragpiq-front-end`: house UI/UX rules (copy budgets, spacing, one-decision-at-a-time flows, big SVG illustrations). Loads automatically whenever Claude works on user-facing UI.
+  - `ragpiq-todo`: turns work that just shipped into a short list of what to do next, action items only, under Setup / Test / Won't work / Your call. Ask "what do I need to do" or "how do I test this".

@@ -8,7 +8,7 @@
     {
       "name": "ragpiq",
       "source": "./plugins/ragpiq",
-      "description": "Ragpiq house skills for Claude Code. Currently: ragpiq-front-end (UI/UX design rules)."
+      "description": "Ragpiq house skills for Claude Code: ragpiq-front-end (UI/UX design rules), ragpiq-todo (action lists), video-edit (social video editing standard)."
     }
   ]
 }

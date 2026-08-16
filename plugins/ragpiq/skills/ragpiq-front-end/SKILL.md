@@ -31,10 +31,24 @@ If a screen needs a paragraph, it needs another screen.
 - At most one help line under the title, 15 words or fewer. The whole screen stays under 25.
 - Draft the copy, then cut 60%. Restyling existing UI? Cut 60% of the words before touching the layout.
 - Anything extra lives in one bounded line: reassurance under the CTA, a one-line card, or fine print. Never a paragraph.
-- Buttons morph instead of multiplying: "Skip for now" becomes "Continue with 2 connected".
+- Buttons morph instead of multiplying: "Skip for now" becomes "Continue" once something is filled in.
 - Busy labels are a verb with an ellipsis: "Saving…".
 - AU English. No em dashes, ever. An en dash in a range ($480 – $620) is fine.
+- Plain and professional, never chatty. Say the thing. Not "Not a match for your racks", not "Nothing to see here", not "Oops". If a label needs a voice, it is doing too much.
+- Never restate what the heading above already said. A section called "Left out" does not need "we left this one out" on every row inside it. Delete the row copy, keep the heading.
+- A row in a list is usually just the name of the thing. Reach for a second line only when it carries a fact the reader cannot see: a price, a time, a count. Never a reason, never a restatement.
 - Not: "Contact information. Please provide the email address where you would like to receive updates." This: "Where should updates go?"
+
+## Buttons
+
+A button is a shape with a name on it. Two failures keep coming back, and both are bans.
+
+- **Never a button that is just underlined text.** Underline is link decoration; on a touch surface it reads as emphasis, not as something to press. Every button gets a real shape: the full-width primary, or a bordered pill for a small action ("Add back", "Post it back", "What Maya said").
+- **Never append a value to a label.** Not "Send offer · $450", not "Save $2,405", not "Continue with 2 connected". The label is a NAME for the action and stays put; a figure glued on grows with the data, reflows on a narrow phone, and repeats a number the screen is already showing. Put the total on the screen and let the button say what it does.
+- Two or three words, ever. "Send offer". "Save". "Add back". "Pass on this lot" is the outside edge, and it is a quiet link, not a primary.
+- Two shapes only: a full-width primary (inverted ink fill, generous radius, disabled at opacity-40), and quiet text for Back and skip. The quiet slot carries no underline either.
+- One quiet slot, and it morphs: Remove this piece → Cancel → Keep it. Never two quiet links side by side.
+- Busy labels are a verb with an ellipsis: "Saving…".
 
 ## Layout and spacing
 
@@ -44,7 +58,7 @@ One narrow centred column and a lot of air. Whitespace does the separating, not 
 - Two or three type sizes per screen, never more: one large semibold title (text-2xl, 28px; up to 34px on a hero), text-sm muted body, text-xs fine print.
 - Fixed rhythm: mt-2.5 (10px) title to help, mt-8 (32px) help to control, mt-10 (40px) control to CTA, space-y-4 (16px) inside groups. The px values carry the same rules into emails.
 - A decision screen fits one viewport: one illustration, one title, one line, one control, one CTA. If it does not fit, remove something or split the screen. Never shrink the spacing to make room.
-- Two button shapes only: a full-width primary (inverted ink fill, generous radius, disabled at opacity-40) and quiet text buttons for Back and skip.
+- Buttons: see the Buttons section. Never invent a third shape.
 
 ## Illustration and icons
 
@@ -61,6 +75,10 @@ One big drawing does the talking.
 - Never subheadings, bullet lists or paragraphs on a screen.
 - Never visible step counts ("Step 3 of 16"). Dots only; keep the count sr-only.
 - Never a second competing button. Morph the label instead.
+- Never a button that is only underlined text. Give it a border or a fill.
+- Never a value in a button label. "Send offer", not "Send offer · $450".
+- Never a chatty or apologetic line. No "Oops", no "Nothing to see here", no "Not a match for your racks".
+- Never repeat the heading in the rows beneath it.
 - Never inline error text under a field. A disabled Continue says invalid; a toast says failed.
 - Never a new colour, font or button shape. Match the neighbouring screens.
 - Never an em dash, anywhere. Use a comma, colon or full stop.
@@ -73,5 +91,8 @@ One big drawing does the talking.
 - [ ] Illustration above the title, aria-hidden, reduced-motion safe
 - [ ] Continue disabled until valid, Enter advances, first input autofocused
 - [ ] Back and skip are quiet, no second primary
+- [ ] Every button has a shape, none is underlined text
+- [ ] Every button label is two or three words with no value in it
+- [ ] No row repeats what its heading already said
 - [ ] Looks like the screen beside it, nothing newly invented
 - [ ] AU English, no em dashes

@@ -31,6 +31,7 @@ If a screen needs a paragraph, it needs another screen.
 - At most one help line under the title, 15 words or fewer. The whole screen stays under 25.
 - Draft the copy, then cut 60%. Restyling existing UI? Cut 60% of the words before touching the layout.
 - Anything extra lives in one bounded line: reassurance under the CTA, a one-line card, or fine print. Never a paragraph.
+- An explanation lives behind a quiet ⓘ, not on the page. The label stays two or three words and takes the shared InfoTip beside it (`components/ui/InfoTip.tsx` in ragpiq-frontend: a popover, not a tooltip, so it works on touch); one or two short sentences open on hover or tap, only for the people who want them. Column headers and stat labels take the ⓘ after the word: Consign ⓘ, Cash ⓘ on the check-in rates table is the shape.
 - Buttons morph instead of multiplying: "Skip for now" becomes "Continue" once something is filled in.
 - Busy labels are a verb with an ellipsis: "Saving…".
 - AU English. No em dashes, ever. An en dash in a range ($480 – $620) is fine.
@@ -94,5 +95,6 @@ One big drawing does the talking.
 - [ ] Every button has a shape, none is underlined text
 - [ ] Every button label is two or three words with no value in it
 - [ ] No row repeats what its heading already said
+- [ ] No permanent explainer line an ⓘ could carry
 - [ ] Looks like the screen beside it, nothing newly invented
 - [ ] AU English, no em dashes

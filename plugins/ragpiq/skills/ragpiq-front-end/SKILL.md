@@ -1,6 +1,6 @@
 ---
 name: ragpiq-front-end
-description: How Ragpiq builds front ends. House rules for copy, spacing, layout, one-decision-at-a-time flows and the big-SVG illustration style. Use whenever you design, build or restyle anything a user will see in a Ragpiq repo, including pages, screens, components, wizards, forms, dialogs, empty states and email templates. Trigger on requests like "build the page for X", "add a screen", "create the signup flow", "redesign this" or "improve the UX", and on any feature work that touches UI, even if the user never mentions design. Follow it ahead of generic design guidance. Skip it only for work with no user-facing surface, such as pure API, script or data changes.
+description: How Ragpiq builds front ends. House rules for copy, spacing, layout, one-decision-at-a-time flows and the house drawings (3D renders in the user app, line drawings elsewhere, one mascot for every person). Use whenever you design, build or restyle anything a user will see in a Ragpiq repo, including pages, screens, components, wizards, forms, dialogs, empty states and email templates. Trigger on requests like "build the page for X", "add a screen", "create the signup flow", "redesign this" or "improve the UX", and on any feature work that touches UI, even if the user never mentions design. Follow it ahead of generic design guidance. Skip it only for work with no user-facing surface, such as pure API, script or data changes.
 ---
 
 # Ragpiq Front End
@@ -72,9 +72,14 @@ One narrow centred column and a lot of air. Whitespace does the separating, not 
 
 One big drawing does the talking.
 
-- Every key screen gets one large hand-built inline SVG, 150 to 220px wide, centred above the title. Never beside it, never from a stock set.
-- House style: ink outlines (strokeWidth 2, round caps and joins), soft paper fills, and at most one accent colour, reusing the accent the surrounding flow already uses. A soft radial glow sits behind, with a gentle drop shadow.
-- Motion is a slow float (about 6s, ease-in-out, infinite) with quiet sparkle accents. Everything respects prefers-reduced-motion with a calm static composition, and the art is always aria-hidden.
+- Every key screen gets one large drawing, 150 to 220px wide, centred above the title. Never beside it, never from a stock set.
+- Any person in any drawing is the mascot: long wavy chestnut hair, a black tank, a leather midi skirt. No other face, figure or hand, on any surface.
+- In the user app (`ragpiq-mobile`) every drawing is a 3D render since October 2026: a real object in the house palette (cream, maroon, brass, brown card for a parcel) under soft studio light, casting its own ground shadow. Renders are made ahead of time in `tools/film-clips` (its README says how) and drawn with `clipOr` or `<ArtClip>` from `src/lib/art`. Never add a flat drawing there, and never add a 3D engine to an app.
+- A render moves by itself. Never wrap one in the slow float, and leave how it plays to `src/lib/art`: one drawing plays at a time, and a phone with 3 GB of memory or less gets a still.
+- A render cannot change, so nothing that can change goes in one. Print a number or a word with the app's own text on a blank render, or play the render only where its number is true.
+- A render's maroon is Ragpiq's. On a store's own site the drawing stays a line drawing, which takes the store's colour.
+- Anywhere a drawing has not been redone in 3D (the website's own pages, the store app, emails) it is a hand-built inline SVG in the house line style: ink outlines (strokeWidth 2, round caps and joins), soft paper fills, and at most one accent colour, reusing the accent the surrounding flow already uses. A soft radial glow sits behind, and it rides a slow float (about 6s, ease-in-out, infinite) with quiet sparkle accents. Never both styles on one screen.
+- Every drawing holds still under prefers-reduced-motion, with a calm static composition, and is always aria-hidden.
 - Small icons are lucide via the size prop: 14 inside buttons, 18 to 20 in rows. An icon carries meaning or does not appear.
 
 ## Never
@@ -93,6 +98,8 @@ One big drawing does the talking.
 - Never a squashed element. If it is tight, cut words, never spacing.
 - Never inline error text under a field. A disabled Continue says invalid; a toast says failed.
 - Never a new colour, font or button shape. Match the neighbouring screens.
+- Never a person in a drawing who is not the mascot.
+- Never a number or a word in a 3D render that the data can change.
 - Never an em dash, never a semicolon, and never a dot, bullet or pipe between two bits of text. Use a full stop, a comma, a colon, or a second line.
 
 ## Before you ship
@@ -103,7 +110,7 @@ One big drawing does the talking.
 - [ ] Every line reads first time to someone who has never used Ragpiq
 - [ ] Fits one viewport without shrinking the spacing
 - [ ] Nothing squashed: air on all four sides of everything, 16px minimum between siblings
-- [ ] Illustration above the title, aria-hidden, reduced-motion safe
+- [ ] Drawing above the title, aria-hidden, reduced-motion safe, and any person in it is the mascot
 - [ ] Continue disabled until valid, Enter advances, first input autofocused
 - [ ] Back and skip are quiet, no second primary
 - [ ] Every button has a shape, none is underlined text

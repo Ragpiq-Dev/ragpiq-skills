@@ -76,7 +76,7 @@ One big drawing does the talking, and it is a 3D render.
 - **A drawing is a 3D render, and so is its animation.** Asked for "an SVG", "an illustration", "a graphic" or "an animation" for a screen, make a render: a real object in real materials (card, cloth, leather, brass, glass), in the house palette, under soft studio light, casting its own ground shadow, at the quality of a product photograph. The flat line drawings read as clip art, and renders replaced them in October 2026.
 - **Read [drawings.md](drawings.md), beside this file, before you make, change or place one.** It holds the look, the one studio that makes them (`ragpiq-mobile/tools/film-clips`), how a screen plays one without slowing a phone, and how a new one gets approved.
 - Any person in any drawing is the mascot: long wavy chestnut hair, a black tank, a leather midi skirt. No other face, figure or hand, on any surface.
-- One small movement per drawing, the thing the words under it are about, in a loop that meets itself. A render carries its own movement and its own shadow: never wrap one in a float, and never add sparkles around it.
+- One small movement per drawing, the thing the words under it are about, in a loop that meets itself. A render carries its own movement and its own shadow: never float one that moves, and never dress one up with sparkle accents.
 - A drawing must not slow a phone down. One plays at a time, a phone short of memory gets a still, and there is an off switch that needs no release. In the user app (`ragpiq-mobile`) that is `clipOr` or `<ArtClip>` from `src/lib/art`, and nothing else plays a render.
 - A render cannot change, so nothing that can change goes in one. Print a number or a word with the app's own text on a blank render, or play the render only where its number is true.
 - A render's maroon is Ragpiq's. On a store's own site the drawing stays a line drawing, which takes the store's colour. That is the one place a new line drawing is still right.
@@ -103,7 +103,7 @@ One big drawing does the talking, and it is a 3D render.
 - Never a new flat line drawing where a 3D render can go.
 - Never a person in a drawing who is not the mascot.
 - Never a number or a word in a 3D render that the data can change.
-- Never a render in a float, and never two drawings moving at once.
+- Never a moving render in a float, and never two drawings moving at once.
 - Never an em dash, never a semicolon, and never a dot, bullet or pipe between two bits of text. Use a full stop, a comma, a colon, or a second line.
 
 ## Before you ship

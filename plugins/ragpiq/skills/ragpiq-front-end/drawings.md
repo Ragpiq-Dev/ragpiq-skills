@@ -16,7 +16,7 @@ Three things hold on every surface:
 
 ## The look
 
-- A real object you could pick up: card with a grain, cloth with a sheen, leather, polished brass, dark glass. Edges are softened so they catch the light. It stands on the ground and casts a soft shadow there, and parts that overlap shadow each other.
+- A real object you could pick up: card with a grain, cloth with a sheen, leather, polished brass, dark glass. Edges are softened so they catch the light. It stands on the ground, or hangs over it, and casts a soft shadow there, and parts that overlap shadow each other.
 - Product-photograph calm. One object or one small group, centred, filling about two thirds to three quarters of the frame. Nothing cut off at an edge, the shadow inside the frame. The camera never moves.
 - One light for every drawing: a soft warm key from the upper left, a gentle fill from the right, a rim light from behind, a little room reflection. Never light one drawing on its own, or the set stops looking like one family.
 - The palette and nothing else: maroon, cream, paper white, warm stone, brass, ink. One maroon hero per drawing, the rest quiet. A parcel is brown card (chosen over cream on 4 October 2026: it says "parcel" at a glance). Cobalt only for a tiny indicator light that truly needs it.
@@ -25,7 +25,8 @@ Three things hold on every surface:
 - It has to read at the size it is drawn: usually 210 by 150 points, 136 by 102 in a pop-up. Fewer, bigger, chunkier things. A detail that turns to mush at real size comes out.
 - One object, one build. The same swing tag, tick, coin, pin, clock, parcel and speech bubble appear in every drawing that needs one.
 - Type inside a render is Poppins.
-- Never ink outlines, flat cartoon fills, a glow or sparkles or stars inside the render, particles, lens flares, or a maker's logo on a phone.
+- Never ink outlines or flat cartoon fills, and nothing added for effect: no glow inside the render, no sparkle accents, no particles, no lens flares. A sparkle belongs only where it is what the drawing means, built as a solid object (the three brass sparkles on the condition question).
+- Never a maker's logo on a phone. That mark is not ours to draw.
 - Every drawing comes out of the one studio, built from formulas, which is why the light, the materials and the mascot match. A picture from anywhere else (a stock model, a generated image) will not match the set.
 
 ### The mascot
@@ -41,10 +42,10 @@ Three things hold on every surface:
 ## Movement
 
 - One small, calm beat per drawing: the thing the words under it are about. A tag swings, a tick presses in, a coin drops into a wallet, a clock hand goes round.
-- A loop of 4 or 6 whole seconds. Every motion's period divides the loop, or eases back to where it started, so the last frame meets the first.
+- A loop of 4 or 6 whole seconds (the turning dress on the film sheet is the one long loop, at 12). Every motion's period divides the loop, or eases back to where it started, so the last frame meets the first.
 - A story that only goes one way never loops by running backwards. Fade it where it ends, or bring the next one in.
 - Keep the moving area small and everything else perfectly still. The file is frames times how much of the picture changes, and so is the work a phone does. A whole object spinning or a big soft thing pulsing is expensive.
-- Nothing moves the whole drawing. No float, no bob, no drifting camera. The render has its own movement and its own shadow, and moving a layer on every frame costs a phone more than playing the clip does.
+- Nothing moves the whole drawing: no bob and no drifting camera inside the render, and no float around a clip while it plays. The render has its own movement and its own shadow, and moving a layer on every frame costs a phone more than playing the clip does.
 - Choose the rest frame on purpose: the moment that best stands for the drawing. It is what shows when nothing may move.
 
 ## The studio
@@ -63,14 +64,14 @@ There is one studio, in the user app's repo: `ragpiq-mobile/tools/film-clips`. E
 
 What ships, per drawing, is three files: the loop (an animated WebP with a see-through background), its first frame (what shows before it plays, so starting never jumps), and its still (the rest frame).
 
-The settings are decisions, not defaults: 20 frames a second, 2.5 times the size in points (3 times for the small ones in a pop-up), quality 70 with alpha 85. Twice the size was visibly soft on a phone. It is an animated image and not a video because a video player takes over the phone's audio session, which the camera screen needs next, and a video has no see-through background.
+The settings are decisions, not defaults: 20 frames a second (the film sheet's six clips, recorded first, are 25), 2.5 times the size in points (3 times for the small ones in a pop-up), quality 70 with alpha 85. Twice the size was visibly soft on a phone. It is an animated image and not a video because a video player takes over the phone's audio session, which the camera screen needs next, and a video has no see-through background.
 
 Everything named here reached `ragpiq-mobile` in October 2026. A checkout with no `src/lib/art` is older than that work: update it. If `dev` itself does not have it yet, stop and ask before building anything.
 
 ## Making a new one
 
 1. Read the words on the screen and the box the drawing sits in. The drawing says what the words say.
-2. Build it in the studio, in the family it belongs to, from the kit. One version, or two where there is a real choice.
+2. Set your eye on the approved set first (the stills in `ragpiq-mobile/assets/art`), then build it in the studio, in the family it belongs to, from the kit. One version, or two where there is a real choice.
 3. Sheet it, judge the real-size column, fix it, and sheet it again until it is right.
 4. Show it on localhost and get a yes.
 5. Add it to the table, record, encode, and place it with `clipOr` or `<ArtClip>`.
@@ -82,7 +83,7 @@ Measured on an iPhone simulator on 4 October 2026. The line drawings held 10 to 
 
 1. One plays at a time, the one in front. A drawing on a slide that is not showing, on a screen under the one in front, or under an open sheet or pop-up shows its first frame and waits.
 2. Never the phone's own decoder for an animated WebP. On iOS it starts again from the first frame for every frame it shows, so a long clip can hold most of a core. Use the image library's decoder (`useAppleWebpCodec={false}` on `expo-image`) and turn off downscaling (`allowDownscaling={false}`), which otherwise resizes every frame.
-3. Never move it. No float, no bob, no transform that changes on every frame.
+3. Never move a clip. No float, no bob, no transform that changes on every frame: that costs about 8 percent of a core by itself. The one drawing that floats is the blank "keep it listed" tag, a still with the app's own words on it and no movement of its own.
 4. A still, not the loop, under reduced motion, on a phone with 3 GB of memory or less, and when the off switch is on.
 5. Keep an off switch that needs no release. In the user app it is the PostHog flag `art-stills`.
 6. Memory is frames times width times height times 4 bytes, held while it plays and released when it leaves: 80 frames at 525 by 375 pixels is 63 MB. A longer loop, more frames a second or a bigger box all cost memory. Keep loops short and boxes modest.

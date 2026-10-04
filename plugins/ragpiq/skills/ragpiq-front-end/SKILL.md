@@ -1,6 +1,6 @@
 ---
 name: ragpiq-front-end
-description: How Ragpiq builds front ends. House rules for copy, spacing, layout, one-decision-at-a-time flows and the big-SVG illustration style. Use whenever you design, build or restyle anything a user will see in a Ragpiq repo, including pages, screens, components, wizards, forms, dialogs, empty states and email templates. Trigger on requests like "build the page for X", "add a screen", "create the signup flow", "redesign this" or "improve the UX", and on any feature work that touches UI, even if the user never mentions design. Follow it ahead of generic design guidance. Skip it only for work with no user-facing surface, such as pure API, script or data changes.
+description: How Ragpiq builds front ends. House rules for copy, spacing, layout, one-decision-at-a-time flows, and the house drawings and their animation (3D renders at product-photograph quality, one mascot for every person). Use whenever you design, build or restyle anything a user will see in a Ragpiq repo, including pages, screens, components, wizards, forms, dialogs, empty states, email templates, illustrations and animated graphics. Trigger on requests like "build the page for X", "add a screen", "create the signup flow", "redesign this", "improve the UX", "make an SVG for X", "draw an illustration" or "animate this graphic", and on any feature work that touches UI, even if the user never mentions design. Follow it ahead of generic design guidance. Skip it only for work with no user-facing surface, such as pure API, script or data changes.
 ---
 
 # Ragpiq Front End
@@ -68,14 +68,21 @@ One narrow centred column and a lot of air. Whitespace does the separating, not 
 - A decision screen fits one viewport: one illustration, one title, one line, one control, one CTA. If it does not fit, remove something or split the screen. Never shrink the spacing to make room.
 - Buttons: see the Buttons section. Never invent a third shape.
 
-## Illustration and icons
+## Drawings, animation and icons
 
-One big drawing does the talking.
+One big drawing does the talking, and it is a 3D render.
 
-- Every key screen gets one large hand-built inline SVG, 150 to 220px wide, centred above the title. Never beside it, never from a stock set.
-- House style: ink outlines (strokeWidth 2, round caps and joins), soft paper fills, and at most one accent colour, reusing the accent the surrounding flow already uses. A soft radial glow sits behind, with a gentle drop shadow.
-- Motion is a slow float (about 6s, ease-in-out, infinite) with quiet sparkle accents. Everything respects prefers-reduced-motion with a calm static composition, and the art is always aria-hidden.
-- Small icons are lucide via the size prop: 14 inside buttons, 18 to 20 in rows. An icon carries meaning or does not appear.
+- Every key screen gets one large drawing, 150 to 220px wide, centred above the title. Never beside it, never from a stock set.
+- **A drawing is a 3D render, and so is its animation.** Asked for "an SVG", "an illustration", "a graphic" or "an animation" for a screen, make a render: a real object in real materials (card, cloth, leather, brass, glass), in the house palette, under soft studio light, casting its own ground shadow, at the quality of a product photograph. The flat line drawings read as clip art, and renders replaced them in October 2026.
+- **Read [drawings.md](drawings.md), beside this file, before you make, change or place one.** It holds the look, the one studio that makes them (`ragpiq-mobile/tools/film-clips`), how a screen plays one without slowing a phone, and how a new one gets approved.
+- Any person in any drawing is the mascot: long wavy chestnut hair, a black tank, a leather midi skirt. No other face, figure or hand, on any surface.
+- One small movement per drawing, the thing the words under it are about, in a loop that meets itself. A render carries its own movement and its own shadow: never wrap one in a float, and never add sparkles around it.
+- A drawing must not slow a phone down. One plays at a time, a phone short of memory gets a still, and there is an off switch that needs no release. In the user app (`ragpiq-mobile`) that is `clipOr` or `<ArtClip>` from `src/lib/art`, and nothing else plays a render.
+- A render cannot change, so nothing that can change goes in one. Print a number or a word with the app's own text on a blank render, or play the render only where its number is true.
+- A render's maroon is Ragpiq's. On a store's own site the drawing stays a line drawing, which takes the store's colour. That is the one place a new line drawing is still right.
+- A line drawing that has not been redone yet (the website's own pages, the store app, emails) stays until someone asks. A new drawing there is a render. Never both styles on one screen, and when a render lands in a flow of line drawings, say so and offer to redo the rest.
+- Every drawing holds still under prefers-reduced-motion, on the frame that best stands for it, and is always aria-hidden.
+- Small icons are lucide via the size prop: 14 inside buttons, 18 to 20 in rows. An icon carries meaning or does not appear. An icon is a flat glyph, never a render.
 
 ## Never
 
@@ -93,6 +100,10 @@ One big drawing does the talking.
 - Never a squashed element. If it is tight, cut words, never spacing.
 - Never inline error text under a field. A disabled Continue says invalid; a toast says failed.
 - Never a new colour, font or button shape. Match the neighbouring screens.
+- Never a new flat line drawing where a 3D render can go.
+- Never a person in a drawing who is not the mascot.
+- Never a number or a word in a 3D render that the data can change.
+- Never a render in a float, and never two drawings moving at once.
 - Never an em dash, never a semicolon, and never a dot, bullet or pipe between two bits of text. Use a full stop, a comma, a colon, or a second line.
 
 ## Before you ship
@@ -103,7 +114,7 @@ One big drawing does the talking.
 - [ ] Every line reads first time to someone who has never used Ragpiq
 - [ ] Fits one viewport without shrinking the spacing
 - [ ] Nothing squashed: air on all four sides of everything, 16px minimum between siblings
-- [ ] Illustration above the title, aria-hidden, reduced-motion safe
+- [ ] Drawing above the title is a 3D render (drawings.md), aria-hidden, still under reduced motion, and any person in it is the mascot
 - [ ] Continue disabled until valid, Enter advances, first input autofocused
 - [ ] Back and skip are quiet, no second primary
 - [ ] Every button has a shape, none is underlined text

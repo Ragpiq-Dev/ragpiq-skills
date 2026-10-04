@@ -64,7 +64,12 @@ There is one studio, in the user app's repo: `ragpiq-mobile/tools/film-clips`. E
 
 What ships, per drawing, is three files: the loop (an animated WebP with a see-through background), its first frame (what shows before it plays, so starting never jumps), and its still (the rest frame).
 
-The settings are decisions, not defaults: 20 frames a second (the film sheet's six clips, recorded first, are 25), 2.5 times the size in points (3 times for the small ones in a pop-up), quality 70 with alpha 85. Twice the size was visibly soft on a phone. It is an animated image and not a video because a video player takes over the phone's audio session, which the camera screen needs next, and a video has no see-through background.
+The settings are decisions, not defaults, and each one was measured:
+
+- 20 frames a second (the film sheet's six clips, recorded first, are 25), 2.5 times the size in points (3 times for the small ones in a pop-up), quality 70 with alpha 85. Twice the size was visibly soft on a phone.
+- Every frame is drawn three times bigger than its file and averaged down. The renderer's own edge smoothing gives an edge five levels of coverage, which left the dress's wire hanger stepped and its neckline a row of dots on a real phone. Averaged down from three times the size, an edge gets 36 samples. The file keeps its size in pixels, so it costs a phone nothing to play and about a seventh more to download.
+- A key frame every 6 to 10 frames, and never an encoder setting that leaves them out. "Playing a drawing" says why.
+- An animated image and not a video, because a video player takes over the phone's audio session, which the camera screen needs next, and a video has no see-through background.
 
 Everything named here reached `ragpiq-mobile` in October 2026. A checkout with no `src/lib/art` is older than that work: update it. If `dev` itself does not have it yet, stop and ask before building anything.
 
@@ -79,7 +84,9 @@ Everything named here reached `ragpiq-mobile` in October 2026. A checkout with n
 
 ## Playing a drawing
 
-Measured on an iPhone simulator on 4 October 2026. The line drawings held 10 to 18 percent of a processor core for as long as they were on screen. A render holds 8 to 20 percent for its first three or four seconds and then about 2 percent, as long as these rules are kept. Android and real phones were not measured: measure there before trusting the numbers.
+Measured on an iPhone simulator on 4 October 2026. The line drawings held 10 to 18 percent of a processor core for as long as they were on screen. A render holds 8 to 20 percent for its first three or four seconds. After that it is about 2 percent where the phone has room to keep its decoded frames, and 6 to 10 percent where it has not, as long as these rules are kept. Android and real phones were not measured: measure there before trusting the numbers.
+
+Measure a drawing against the same screen with nothing playing, in the same run. Something else on the screen can cost more than the drawing does: the red unread dot's glow held about 10 percent by itself in a debug build, and read as the drawing's cost until the empty screen was measured. Smoothness is measured, not judged by eye: record the simulator's screen (`xcrun simctl io <device> recordVideo`), count the frames in which the drawing's pixels change, and compare that with the file's own frame timings. Count changed pixels, not the average change, or a drawing that moves a small part of its picture reads as stuck.
 
 1. One plays at a time, the one in front. A drawing on a slide that is not showing, on a screen under the one in front, or under an open sheet or pop-up shows its first frame and waits.
 2. Never the phone's own decoder for an animated WebP. On iOS it starts again from the first frame for every frame it shows, so a long clip can hold most of a core. Use the image library's decoder (`useAppleWebpCodec={false}` on `expo-image`) and turn off downscaling (`allowDownscaling={false}`), which otherwise resizes every frame.
@@ -87,7 +94,8 @@ Measured on an iPhone simulator on 4 October 2026. The line drawings held 10 to 
 4. A still, not the loop, under reduced motion, on a phone with 3 GB of memory or less, and when the off switch is on.
 5. Keep an off switch that needs no release. In the user app it is the PostHog flag `art-stills`.
 6. Memory is frames times width times height times 4 bytes, held while it plays and released when it leaves: 80 frames at 525 by 375 pixels is 63 MB. A longer loop, more frames a second or a bigger box all cost memory. Keep loops short and boxes modest.
-7. The download is a budget, held by a test. The user app's 62 drawings are about 15 MB.
+7. A phone often keeps only part of a clip. An iPhone keeps decoded frames only up to 60% of the memory that is free at that moment, and decodes the rest again on every loop, starting from the last key frame. A file with no key frames starts again from its first frame: on the simulator the film sheet's dress, 300 frames with none, froze for up to 0.6 seconds a loop. With a key frame every 6 to 10 frames the most it rebuilds is about a dozen frames, and the same dress held 25 updates a second with no gap over 57 ms. `src/lib/art/webp-starts.ts` reads a file the way the phone's decoder does, and a test holds every clip to it.
+8. The download is a budget, held by a test. The user app's 62 drawings are about 19 MB, and the film sheet and the camera's How to are 9 MB more.
 
 In the user app all of this lives in one place, `src/lib/art`:
 

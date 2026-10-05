@@ -14,7 +14,7 @@ From any Claude Code session:
 
 Then turn on auto-update so new skill versions arrive on their own: run `/plugin`, open the **Marketplaces** tab, select `ragpiq-skills`, choose **Enable auto-update**.
 
-**Auto-update only runs in the terminal.** Claude Code refreshes a marketplace in an interactive terminal session and nowhere else, so anyone working in the desktop app stays on the version from the day they installed (one machine was five merges behind on 4 Oct 2026, with auto-update on). `ragpiq-frontend` refreshes the plugin for you at every session start (`.claude/hooks/refresh-ragpiq-skills.mjs`). In any other repo, or to update right now, run these in a terminal:
+**Auto-update only runs in the terminal.** Claude Code refreshes a marketplace in an interactive terminal session and nowhere else, so anyone working in the desktop app stays on the version from the day they installed (one machine was five merges behind on 4 Oct 2026, with auto-update on). `ragpiq-frontend` refreshes the plugin for you when a session starts there, at most once every six hours (`.claude/hooks/refresh-ragpiq-skills.mjs`). Nobody has to ask Claude to pull anything. In any other repo, or to update right now, run these in a terminal:
 
 ```
 claude plugin marketplace update ragpiq-skills

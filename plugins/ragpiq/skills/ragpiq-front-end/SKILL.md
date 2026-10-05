@@ -78,6 +78,7 @@ One big drawing does the talking, and it is a 3D render.
 - Any person in any drawing is the mascot: long wavy chestnut hair, a black tank, a leather midi skirt. No other face, figure or hand, on any surface.
 - One small movement per drawing, the thing the words under it are about, in a loop that meets itself. A render carries its own movement and its own shadow: never float one that moves, and never dress one up with sparkle accents.
 - A drawing must not slow a phone down. One plays at a time, a phone short of memory gets a still, and there is an off switch that needs no release. In the user app (`ragpiq-mobile`) that is `clipOr` or `<ArtClip>` from `src/lib/art`, and nothing else plays a render.
+- In an app, never scale a drawing above the size it was made at. A phone stretches it soft and a browser hides that, so anything that zooms or turns is checked on the simulator, not only in a browser.
 - A render cannot change, so nothing that can change goes in one. Print a number or a word with the app's own text on a blank render, or play the render only where its number is true.
 - A render's maroon is Ragpiq's. On a store's own site the drawing stays a line drawing, which takes the store's colour. That is the one place a new line drawing is still right.
 - A line drawing that has not been redone yet (the website's own pages, the store app, emails) stays until someone asks. A new drawing there is a render. Never both styles on one screen, and when a render lands in a flow of line drawings, say so and offer to redo the rest.
@@ -104,6 +105,7 @@ One big drawing does the talking, and it is a 3D render.
 - Never a person in a drawing who is not the mascot.
 - Never a number or a word in a 3D render that the data can change.
 - Never a moving render in a float, and never two drawings moving at once.
+- Never a drawing scaled up in an app. Make it at the largest size it is shown.
 - Never an em dash, never a semicolon, and never a dot, bullet or pipe between two bits of text. Use a full stop, a comma, a colon, or a second line.
 
 ## Before you ship
@@ -115,6 +117,7 @@ One big drawing does the talking, and it is a 3D render.
 - [ ] Fits one viewport without shrinking the spacing
 - [ ] Nothing squashed: air on all four sides of everything, 16px minimum between siblings
 - [ ] Drawing above the title is a 3D render (drawings.md), aria-hidden, still under reduced motion, and any person in it is the mascot
+- [ ] A drawing that zooms, turns or plays over the camera was checked on the simulator at full size
 - [ ] Continue disabled until valid, Enter advances, first input autofocused
 - [ ] Back and skip are quiet, no second primary
 - [ ] Every button has a shape, none is underlined text

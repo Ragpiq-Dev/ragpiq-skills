@@ -14,7 +14,7 @@ From any Claude Code session:
 
 Then turn on auto-update so new skill versions arrive on their own: run `/plugin`, open the **Marketplaces** tab, select `ragpiq-skills`, choose **Enable auto-update**.
 
-**Auto-update only runs in the terminal.** Claude Code refreshes a marketplace in an interactive terminal session and nowhere else, so anyone working in the desktop app stays on the version from the day they installed (one machine was five merges behind on 4 Oct 2026, with auto-update on). `ragpiq-frontend` refreshes the plugin for you when a session starts there, at most once every six hours (`.claude/hooks/refresh-ragpiq-skills.mjs`). Nobody has to ask Claude to pull anything. In any other repo, or to update right now, run these in a terminal:
+**Auto-update only runs in the terminal.** Claude Code refreshes a marketplace in an interactive terminal session and nowhere else, so anyone working in the desktop app stays on the version from the day they installed (one machine was five merges behind on 4 Oct 2026, with auto-update on). Four repos refresh the plugin for you when a session starts there, at most once every six hours: `ragpiq-frontend`, `ragpiq-mobile`, `ragpiq-reseller-mobile` and `ragpiq-admin-mobile` (`.claude/hooks/refresh-ragpiq-skills.mjs`, the same file in each, and each repo's `.claude/settings.json` switches the plugin on). Nobody has to ask Claude to pull anything. In any other repo, or to update right now, run these in a terminal:
 
 ```
 claude plugin marketplace update ragpiq-skills
@@ -27,7 +27,7 @@ The Claude account doesn't matter; any machine that can reach this repo can inst
 
 ## Updating a skill
 
-Edit the `SKILL.md`, open a PR, merge to `main`. That's the whole release: plugins here deliberately omit a `version` field, so every commit to `main` counts as a new version. Terminal sessions with auto-update enabled pick it up in the background (a notice suggests `/reload-plugins`, or it loads next session). Desktop app sessions get it through the session-start refresh in `ragpiq-frontend`, or the two commands above. Anyone with write access to this repo can do this, not only the person who usually does.
+Edit the `SKILL.md`, open a PR, merge to `main`. That's the whole release: plugins here deliberately omit a `version` field, so every commit to `main` counts as a new version. Terminal sessions with auto-update enabled pick it up in the background (a notice suggests `/reload-plugins`, or it loads next session). Desktop app sessions get it through the session-start refresh in those four repos, or the two commands above. Anyone with write access to this repo can do this, not only the person who usually does.
 
 ## Adding a skill
 

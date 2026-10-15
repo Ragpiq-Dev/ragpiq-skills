@@ -32,6 +32,7 @@ If a screen needs a paragraph, it needs another screen. Whatever you draft first
 - Cut 70 to 80% of the first draft before it goes on the page. Every sentence you want to add is one the reader has to get past to do the thing they came for. Restyling an existing screen? Cut the same share out of its words before you touch the layout. When two versions both work, the shorter one ships.
 - No subheadings. A screen has one title, and nothing under it is a heading. A part of the page that wants its own heading is a second screen, a row, or nothing. Space separates the parts.
 - Titles are a question or an imperative, 7 words or fewer. Aim for 4. "Name your shop." "Where do you sell?"
+- **A title is one line.** At its own size on a 375px phone, the big text never wraps: two lines of big type look heavy (Gwynn, 15 Oct 2026). If it wraps, cut words until it fits ("Want a ping when we find it?" became "Get notified for it"), never shrink the type or the margins. The help line under it aims for one line too.
 - At most one help line under the title, 15 words or fewer. The whole screen stays under 25.
 - Plain words a stranger gets first time. Write for someone on a phone, in a hurry, who has never heard our words for things: short common words, the verb up front, one idea per sentence. If a line would need explaining to a friend, rewrite it. Not: "Awaiting settlement". This: "On its way". Not: "Handover scheduled". This: "Drop-off booked". Not: "Verify your identity". This: "Confirm it's you".
 - Anything extra lives in one bounded line: reassurance under the CTA, a one-line card, or fine print. Never a paragraph.
@@ -91,6 +92,7 @@ One big drawing does the talking, and it is a 3D render.
 - Never a subheading. One title per screen, and space separates the parts.
 - Never bullet lists or paragraphs on a screen.
 - Never a word the reader has to decode. If it needs explaining, it is the wrong word.
+- Never a title that wraps onto a second line. Cut words until it fits.
 - Never visible step counts ("Step 3 of 16"). Progress dots only, with the count sr-only.
 - Never a second competing button. Morph the label instead.
 - Never a button that is only underlined text. Give it a border or a fill.
@@ -112,7 +114,7 @@ One big drawing does the talking, and it is a 3D render.
 
 - [ ] One decision on this screen, one primary action
 - [ ] First draft cut by 70 to 80%, no subheadings anywhere
-- [ ] Title 7 words or fewer, the whole screen under 25
+- [ ] Title 7 words or fewer and on one line at 375px, the whole screen under 25
 - [ ] Every line reads first time to someone who has never used Ragpiq
 - [ ] Fits one viewport without shrinking the spacing
 - [ ] Nothing squashed: air on all four sides of everything, 16px minimum between siblings

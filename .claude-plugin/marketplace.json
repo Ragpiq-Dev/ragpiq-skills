@@ -8,7 +8,7 @@
     {
       "name": "ragpiq",
       "source": "./plugins/ragpiq",
-      "description": "Ragpiq house skills for Claude Code: ragpiq-front-end (UI/UX design rules), ragpiq-todo (action lists), video-edit (social video editing standard)."
+      "description": "Ragpiq house skills for Claude Code: ragpiq-front-end (UI/UX design rules), ragpiq-todo (action lists), ragpiq-daily-tasks (the day's Signals and Noises in Notion, timeboxed), video-edit (social video editing standard)."
     }
   ]
 }
